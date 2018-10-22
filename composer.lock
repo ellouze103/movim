@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "0a878a3e12f97f7d93525019755294a0",
@@ -126,16 +126,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "46afded9720f40b9dc63542af4e3e43a1177acb0"
+                "reference": "8afa52cd417f4ec417b4bfe86b68106538a87660"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/46afded9720f40b9dc63542af4e3e43a1177acb0",
-                "reference": "46afded9720f40b9dc63542af4e3e43a1177acb0",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/8afa52cd417f4ec417b4bfe86b68106538a87660",
+                "reference": "8afa52cd417f4ec417b4bfe86b68106538a87660",
                 "shasum": ""
             },
             "require": {
@@ -178,7 +178,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2018-08-08T08:57:40+00:00"
+            "time": "2018-10-18T06:09:13+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -907,72 +907,6 @@
                 "html"
             ],
             "time": "2018-02-23T01:58:20+00:00"
-        },
-        {
-            "name": "fabiang/sasl",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fabiang/sasl.git",
-                "reference": "cb49ffc81aa179420e1c7ed36dd06caa0ad3624b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fabiang/sasl/zipball/cb49ffc81aa179420e1c7ed36dd06caa0ad3624b",
-                "reference": "cb49ffc81aa179420e1c7ed36dd06caa0ad3624b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "behat/behat": "~3.0",
-                "codeclimate/php-test-reporter": "@dev",
-                "phpunit/phpunit": "~4.4",
-                "satooshi/php-coveralls": "~0.6"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Fabiang\\Sasl\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Anish Mistry",
-                    "email": "amistry@am-productions.biz"
-                },
-                {
-                    "name": "Richard Heyes",
-                    "email": "richard@php.net"
-                },
-                {
-                    "name": "Michael Bretterklieber",
-                    "email": "michael@bretterklieber.com"
-                },
-                {
-                    "name": "Fabian Grutschus",
-                    "email": "f.grutschus@lubyte.de"
-                }
-            ],
-            "description": "Abstraction of various SASL mechanism responses.",
-            "homepage": "https://github.com/fabiang/sasl",
-            "keywords": [
-                "Authentication",
-                "auth",
-                "sasl",
-                "scram"
-            ],
-            "time": "2015-01-02T09:00:34+00:00"
         },
         {
             "name": "guzzlehttp/psr7",

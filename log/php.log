@@ -1,0 +1,4 @@
+[22-Oct-2018 18:50:38 Europe/Berlin] Unable to write to /root/movim/log/logger.log
+[22-Oct-2018 18:53:35 Europe/Berlin] Unable to write to /root/movim/cache/test.tmp
+[22-Oct-2018 18:54:25 Europe/Berlin] Unable to write to /root/movim/cache/test.tmp
+[22-Oct-2018 17:05:26 UTC] SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client (SQL: select * from `configuration` where `configuration`.`id` = 1 limit 1)

@@ -1,43 +1,83 @@
-Movim - Decentralized social platform
-=====================================
+# React/ZMQ
 
-Movim is a decentralized social platform, written in PHP and HTML5 and based on the XMPP standard protocol.
+ZeroMQ bindings for React.
 
-![movim logo](https://movim.eu/img/chatroom.png)
+[![Build Status](https://secure.travis-ci.org/friends-of-reactphp/zmq.png?branch=master)](http://travis-ci.org/friends-of-reactphp/zmq)
 
-Installation
-------------
-Please refer to the installation instructions that are available on the GitHub Wiki: https://github.com/movim/movim/wiki
+## Install
 
-Support Us
-----------
-You can help Movim by:
-* Doing a one time donation using Paypal: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=8QHPJDAQXT9UC)
-* Helping us covering our monthly costs on our official Patreon page: [![Donate](https://img.shields.io/badge/Patreon-Become%20a%20Patron-orange.svg)](https://www.patreon.com/movim)
-* …or on Liberapay [![Donate](https://img.shields.io/liberapay/receives/movim.svg)](https://liberapay.com/movim/donate)
+The recommended way to install react/zmq is [through composer](http://getcomposer.org).
 
+```bash
+composer require react/zmq
+```
 
-You can also support us on:
-* Flattr: https://flattr.com/thing/568092/Movim
-* Bountysource: https://www.bountysource.com/teams/movim
+## Example
 
-Links
------
-* Movim official website: https://movim.eu/
-* Twitter: https://twitter.com/MovimNetwork
-* XMPP Chatroom: movim@conference.movim.eu
+And don't forget to autoload:
 
-### Pods
-You can also use Movim on our official Pods:
+```php
+<?php
+require 'vendor/autoload.php';
+```
 
-* https://fr.movim.eu/ server hosted in France
-* https://nl.movim.eu/ server hosted in The Netherlands
-* https://de.movim.eu/ server hosted in Germany
+Here is an example of a push socket:
 
-Translations
-------------
-Help us translate Movim on https://www.transifex.com/projects/p/movim/.
+```php
+<?php
 
-License
--------
-Movim is released under the terms of the AGPLv3 license. See COPYING for more details.
+$loop = React\EventLoop\Factory::create();
+
+$context = new React\ZMQ\Context($loop);
+
+$push = $context->getSocket(ZMQ::SOCKET_PUSH);
+$push->connect('tcp://127.0.0.1:5555');
+
+$i = 0;
+$loop->addPeriodicTimer(1, function () use (&$i, $push) {
+    $i++;
+    echo "sending $i\n";
+    $push->send($i);
+});
+
+$loop->run();
+```
+
+And the pull socket that goes with it:
+
+```php
+<?php
+
+$loop = React\EventLoop\Factory::create();
+
+$context = new React\ZMQ\Context($loop);
+
+$pull = $context->getSocket(ZMQ::SOCKET_PULL);
+$pull->bind('tcp://127.0.0.1:5555');
+
+$pull->on('error', function ($e) {
+    var_dump($e->getMessage());
+});
+
+$pull->on('message', function ($msg) {
+    echo "Received: $msg\n";
+});
+
+$loop->run();
+```
+
+## Todo
+
+* Integration tests
+* Buffer limiting
+* Do not push messages if no listener
+
+## Tests
+
+To run the test suite, you need PHPUnit.
+
+    $ phpunit
+
+## License
+
+MIT, see LICENSE.
