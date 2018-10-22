@@ -4,15 +4,15 @@
 # If using SQLite, only 'type' and 'database' are needed
 $conf = [
     # The type can be 'pgsql', 'mysql', or 'sqlite'
-    'type'        => 'mysql',
+    'type'        => 'pgsql',
     # The database username
-    'username'    => 'root',
+    'username'    => 'postgres',
     # The password
-    'password'    => 'root',
+    'password'    => 'ROOT',
     # Where can we find the database ?
     'host'        => 'localhost',
     # The port number, 3306 for MySQL and 5432 for PostgreSQL
-    'port'        => 3306,
+    'port'        => 5432,
     # The database name, or for SQLite the absolute file path
     'database'    => 'movim'
 ];
